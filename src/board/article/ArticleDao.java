@@ -1,4 +1,5 @@
 package board.article;
+
 import java.util.ArrayList;
 
 import board.DBUtil2;
@@ -7,7 +8,7 @@ public class ArticleDao {
 	private DBUtil2 db = new DBUtil2();
 
 	public ArrayList<Article> getArticles() {
-		String sql = "select * from article";
+		String sql = "SELECT * FROM(SELECT a.*, m.nickname FROM article a INNER JOIN `member` m ON a.mid = m.id WHERE a.id = 2) article";
 		return db.getRows(sql, new ArticleRowMapper());
 	}
 
@@ -27,7 +28,7 @@ public class ArticleDao {
 	}
 
 	public Article getArticleById(int aid) {
-		String sql = "select * from article where id = ?";
+		String sql = "SELECT * FROM(SELECT a.*, m.nickname FROM article a INNER JOIN `member` m ON a.mid = m.id WHERE a.id = ?) article";
 		return db.getRow(sql, new ArticleRowMapper(), aid);
 	}
 

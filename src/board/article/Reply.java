@@ -11,7 +11,7 @@ public class Reply {
 		
 	}
 	
-	public Reply(int id, int parentId, String body, String wrier, String regDate) {
+	public Reply(int id, int parentId, String body, String writer, String regDate) {
 		super();
 		this.id = id;
 		this.parentId = parentId;

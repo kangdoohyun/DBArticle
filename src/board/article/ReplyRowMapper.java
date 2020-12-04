@@ -8,7 +8,6 @@ public class ReplyRowMapper implements RowMapper<Reply> {
 
 	@Override
 	public Reply getRow(ResultSet rs) throws SQLException {
-		
 		int aid = rs.getInt("aid");
 		int id = rs.getInt("id");
 		String body = rs.getString("body");
